@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<title>DataDash Collector</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../static/css/page.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.0/dist/chart.min.js"></script>
+
+</head>
+
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="openMenu();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right"><i class="fa fa-database"></i> DataTime</span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      <i class="fa fa-desktop fa-4x"></i>
+    </div>
+    <div class="w3-col s8 w3-bar">
+      <span>Welcome our Developer</span><br>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Dashboard options</h5>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="closeMenu()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#header" id="Overview" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Overview</a>
+    <a href="#controls" id="image" class="w3-bar-item w3-button w3-padding"><i class="fa fa-crosshairs"></i>  Image Collector</a>
+    <a href="#graph" id="data" class="w3-bar-item w3-button w3-padding"><i class="fa fa-line-chart"></i>  Data visualizer</a>
+    <a href="#new" id="news" class="w3-bar-item w3-button w3-padding"><i class="fa fa-newspaper-o"></i>  News</a>
+    <a href="#datatimeinfo" id="about" class="w3-bar-item w3-button w3-padding"  onclick="color()"><i class="fa fa-info"></i>  About DataTime</a>
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="closeMenu()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <a name="header"></a>
+    <h5><b><i class="fa fa-dashboard"></i> DataTime Dashboard</b></h5>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-picture-o fa-4x"></i></div>
+        <div class="w3-right">
+          <h3 id="images-collected">0</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Images Collected or Found</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-camera fa-4x"></i></div>
+        <div class="w3-right">
+          <h3 id="frame-rate">0</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Frame rate (FPS)</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-arrows-alt fa-4x"></i></div>
+        <div class="w3-right">
+          <h3 id="record-state">False</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Record State</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-orange w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-tag fa-4x"></i></div>
+        <div class="w3-right">
+          <h3 id="current-label">NONE</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Current Label</h4>
+      </div>
+    </div>
+  </div>
+    
+  <div class="w3-panel">
+    <a name="controls"></a>
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third">
+        <h5><i class="fa fa-gamepad"></i> Controls:</h5>
+          <form action="#" method="POST">
+            <input type="text" placeholder="Your path" name="path_name">
+            <input type="submit" value="Submit your path" name="path">
+            <p>Your current path is : <span class='path' style="color: red;">NONE SELECTED</span></p>
+            <table>
+                <tr>
+                    <input type="submit" value="Start recording" name="start" >
+                </tr>
+                <tr>
+                    <input type="submit" value="Stop Recording" name="stop">
+                
+                </tr>
+            </table>
+          </form>
+        <h5>Your images :</h5>
+        <div id="scrollable-paths-viewer">
+            <ul id="first-path">
+              <li class="path"></li>
+                <ul id=list>
+                </ul>
+            </ul>
+        </div>
+      </div>
+      <div class="w3-twothird">
+        <h5><i class="fa fa-video-camera"></i> Camera Feeds :</h5>
+        <img id="bg" src="{{ url_for('video_feed') }}">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <a name="graph"></a>
+    <h5>Data Distribution visualizer</h5>
+    <canvas id="myChart"></canvas>
+    <div class="w3-grey">
+      
+  </div>
+  <hr>
+
+  <div class="w3-container">
+    <a name="new"></a>
+    <h5>Our Features :</h5>
+    <div class="w3-row">
+      <div class="w3-col m2 text-center">
+          <i class="fa fa-balance-scale fa fa-5x"></i>
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>Data Extraction and Balance <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
+        <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-col m2 text-center">
+        <i class="fa fa-get-pocket fa fa-5x"></i>
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>Data Collector <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="w3-container w3-dark-grey w3-padding-32">
+      <div class="w3-container w3-third" >
+        <h5 class="w3-bottombar w3-border-orange">DataTime Informations</h5>
+        <p><i class="fa fa-github"></i> GitHub Repository</p>
+        <p><i class="fa fa-envelope-o"></i> Email</p>
+        <p><i class="fa fa-linkedin"></i> LinkedIn</p>
+        <p><i class="fa fa-facebook"></i> Facebook</p>
+      </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+    <a name="datatimeinfo"></a>
+    <h4>Other Informations</h4>
+    <p>Powered by <strong>Ayman Abid</strong></p>
+  </footer>
+
+  <!-- End page content -->
+</div>
+<script src="../static/js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../static/js/plotter.js"></script>
+</body>
+</html>
