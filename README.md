@@ -140,15 +140,23 @@ you have the instructions of the DataBackups process.
 Your Folder Tree have to be like that :
 
         └──Project/
-            │   ├── data/
-            │   ├── image1.png   
-            │   ├── image1.txt    
-            │   ├── image2.png
-            │   ├── image2.txt
-            │   ├── ...
-            │   ├── ...
-            │   ├──imageX.png
-            │   └──imageX.txt
+            │   └──data/
+            │        ├── labels/
+            │        │     ├── image1.txt   
+            │        │     ├── image2.txt    
+            │        │     ├── image3.txt
+            │        │     ├── image4.txt
+            │        │     ├── ...
+            │        │     ├── ...
+            │        │     └──imageX.txt
+            │        │
+            │        ├── image1.png   
+            │        ├── image2.png    
+            │        ├── image3.png
+            │        ├── image4.png
+            │        ├── ...
+            │        ├── ...
+            │        └──imageX.txt
             │
             ├── train.py
             └── ...
@@ -247,3 +255,7 @@ The dashboard is Flask based so the Output be like :
 - we suggest to use a external Camera for the compilicated object.
 
 - Internet Connection is important during the use of the **DataDash** because it uses some online JavaScript and css libraries.
+
+## License
+
+[MIT](LICENSE)
