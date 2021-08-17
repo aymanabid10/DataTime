@@ -141,23 +141,34 @@ Your Folder Tree have to be like that :
 
         └──Project/
             │   └──data/
-            │        ├── labels/
-            │        │     ├── image1.txt   
-            │        │     ├── image2.txt    
-            │        │     ├── image3.txt
-            │        │     ├── image4.txt
-            │        │     ├── ...
-            │        │     ├── ...
-            │        │     └──imageX.txt
+            │        ├──className0/   
+            │        │       ├── labels/
+            │        │       │     ├── image0.txt   
+            │        │       │     ├── image1.txt    
+            │        │       │     ├── image2.txt
+            │        │       │     ├── image3.txt
+            │        │       │     ├── ...
+            │        │       │     ├── ...
+            │        │       │     └──imageX.txt
+            │        │       │
+            │        │       ├── image0.png   
+            │        │       ├── image1.png    
+            │        │       ├── image2.png
+            │        │       ├── image3.png
+            │        │       ├── ...
+            │        │       ├── ...
+            │        │       └──imageX.txt
             │        │
-            │        ├── image1.png   
-            │        ├── image2.png    
-            │        ├── image3.png
-            │        ├── image4.png
+            │        ├──className1/
+            │        │       ├── labels/
+            │        │       │     └── ... 
+            │        │       └── ... 
             │        ├── ...
-            │        ├── ...
-            │        └──imageX.txt
-            │
+            │        │
+            │        └──classNameX/
+            │                ├── labels/
+            │                │     └── ... 
+            │                └── ... 
             ├── train.py
             └── ...
 
