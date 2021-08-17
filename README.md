@@ -157,7 +157,7 @@ Your Folder Tree have to be like that :
             │        │       ├── image3.png
             │        │       ├── ...
             │        │       ├── ...
-            │        │       └──imageX.txt
+            │        │       └──imageX.png
             │        │
             │        ├──className1/
             │        │       ├── labels/
