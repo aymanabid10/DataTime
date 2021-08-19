@@ -1,13 +1,10 @@
-// Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
-// Get the DIV with overlay effect
 var overlayBg = document.getElementById("myOverlay");
 var path;
 var childfiles = [];
 let index;
 var file ;
 
-// Toggle between showing and hiding the sidebar, and add overlay effect
 function openMenu() {
 
   if (mySidebar.style.display === 'block') {
