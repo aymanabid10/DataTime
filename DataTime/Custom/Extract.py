@@ -34,7 +34,6 @@ class ExtractDataImages(DataImageGenerator):
                 NewSize:tuple,
                 Save:bool,
                 output="Output",
-                balanceProcess=True,
                 display=False):
                 
         super().__init__(path)
