@@ -5,7 +5,7 @@ setup(
   name = 'DataTime',
   packages = ['DataTime','DataDash'], 
   version = '1.0.0',
-  license='MIT', 
+  license='Apache-2.0', 
   description = 'TYPE YOUR DESCRIPTION HERE', 
   author = 'Ayman Abid',
   author_email = 'abidcssaymancss@gmail.com',
@@ -38,10 +38,10 @@ setup(
 
       ],
   classifiers=[
-    'Development Status :: 3 - Alpha',
+    'Development Status :: 3 - beta',
     'Intended Audience :: Developers',   
     'Topic :: Software Development :: Build Tools',
-    'License :: OSI Approved :: MIT License', 
+    'License :: OSI Approved :: Apache Software License', 
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
     'Programming Language :: Python :: 3.8',
